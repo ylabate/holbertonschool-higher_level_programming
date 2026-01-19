@@ -6,4 +6,3 @@ def new_in_list(my_list, idx, element):
         return (my_list_copy)
     else:
         return (my_list_copy)
-
