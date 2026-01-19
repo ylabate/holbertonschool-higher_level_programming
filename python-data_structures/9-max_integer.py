@@ -4,7 +4,7 @@ def max_integer(my_list=[]):
     for number in my_list:
         biggest = number if biggest < number else biggest
     biggest = None if biggest == float('-inf') else biggest
-    return (biggest)
+    return biggest
 
 
 if __name__ == "__main__":
