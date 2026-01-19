@@ -20,7 +20,8 @@ def add_tuple(tuple_a=(), tuple_b=()):
     else:
         b_0 = 0
         b_1 = 0
-    new_tuple = (a_0 + a_1), (b_0 + b_1)
+
+    new_tuple = (a_0 + b_0), (b_1 + a_1)
     return (new_tuple)
 
 
@@ -32,4 +33,3 @@ if __name__ == "__main__":
 
     print(add_tuple(tuple_a, (1, )))
     print(add_tuple(tuple_a, ()))
-    print(add_tuple((1, 2), (1, 2, 3)))
