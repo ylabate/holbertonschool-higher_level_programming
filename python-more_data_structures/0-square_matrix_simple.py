@@ -4,7 +4,7 @@ def square_matrix_simple(matrix=[]):
     for i in range(len(matrix)):
         new_line = []
         for j in range(len(matrix[i])):
-            new_line.append(matrix[i][j])
+            new_line.append(int(matrix[i][j]) ** 2)
         new_matrix.append(new_line)
     return (new_matrix)
 
