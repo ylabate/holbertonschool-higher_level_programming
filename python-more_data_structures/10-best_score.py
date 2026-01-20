@@ -10,4 +10,3 @@ if __name__ == "__main__":
 
     best_key = best_score(None)
     print("Best score: {}".format(best_key))
-
