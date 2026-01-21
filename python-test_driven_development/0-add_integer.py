@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Docstring for python-test_driven_development.0-add_integer
+This module provides a function that adds two integers.
+It handles basic types (int, float) and raises errors for invalid types.
 """
 
 
