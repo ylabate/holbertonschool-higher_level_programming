@@ -1,0 +1,25 @@
+#!/usr/bin/python3
+"""
+Docstring for python-test_driven_development.0-add_integer
+"""
+
+
+def add_integer(a, b=98):
+    """
+    Return the sum of a plus b.
+
+    :param a: First number
+    :type a: int or float
+    :param b: Second number
+    :type b: int or float
+    :return: The addition of a and b
+    :rtype: int
+    :raises TypeError: If a or b are not integers or floats
+    """
+    try:
+        return int(a + b)
+    except TypeError:
+        if not isinstance(a, int):
+            print("a must be an integer")
+        else:
+            print("b must be an integer")
