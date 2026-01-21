@@ -11,19 +11,27 @@ negative addition :
 
 add with "a" as string :
 	>>> add_integer("a", 10)
-	a must be an integer
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
 
 add with "b" as string :
 	>>> add_integer(10, "b")
-	b must be an integer
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
 
 add with "a" as list of int:
 	>>> add_integer([1, 2], 10)
-	a must be an integer
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
 
 add with "b" as list of int:
 	>>> add_integer(10, [1, 2])
-	b must be an integer
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
 
 add with "a" as float:
 	>>> add_integer(1.6, 10)
@@ -41,4 +49,6 @@ add with "a" infinite of float:
 
 add with "a" as None:
 	>>> add_integer(None, 0)
-	a must be an integer
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
