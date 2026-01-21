@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 def raise_exception():
-    a = 1
-    b = 'a'
-    if a / b
+    raise TypeError
 
 
 if __name__ == "__main__":
