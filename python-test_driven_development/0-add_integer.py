@@ -20,6 +20,6 @@ def add_integer(a, b=98):
         return int(a + b)
     except TypeError:
         if not isinstance(a, int):
-            print("a must be an integer")
+            raise TypeError("a must be an integer")
         else:
-            print("b must be an integer")
+            raise TypeError("b must be an integer")
