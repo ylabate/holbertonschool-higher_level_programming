@@ -27,6 +27,8 @@ def text_indentation(text):
         How are you?
         <BLANKLINE>
     """
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
     res = ''
     i = 0
     while i < len(text):
