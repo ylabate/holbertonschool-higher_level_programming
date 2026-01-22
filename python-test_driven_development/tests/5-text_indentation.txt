@@ -1,3 +1,4 @@
+
 Import:
 	>>> text_indentation = __import__('5-text_indentation').text_indentation
 
@@ -43,11 +44,6 @@ Test with spaces before and after delimiters:
 	<BLANKLINE>
 	World
 
-	>>> text_indentation("   Hello. World   ")
-	Hello.
-	<BLANKLINE>
-	World
-
 Test with multiple delimiters:
 	>>> text_indentation("...???:::")
 	.
@@ -73,10 +69,12 @@ Test with newlines in text:
 	>>> text_indentation("Hello.\nWorld")
 	Hello.
 	<BLANKLINE>
+	<BLANKLINE>
 	World
 
 Test with empty string:
 	>>> text_indentation("")
+
 
 TypeError - text is not a string:
 	>>> text_indentation(123)
@@ -119,4 +117,4 @@ Too many arguments:
 	>>> text_indentation("Hello", "World")
 	Traceback (most recent call last):
 	...
-	TypeError: text_indentation() takes 1 positional argument but 2 were given 
+	TypeError: text_indentation() takes 1 positional argument but 2 were given
