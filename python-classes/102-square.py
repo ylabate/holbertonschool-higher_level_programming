@@ -29,7 +29,7 @@ class Square:
         Returns:
             int: The current area of the square.
         """
-        return (self.__size ** 2)
+        return self.__size ** 2
 
     @property
     def size(self):
@@ -53,16 +53,38 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
 
+    def __eq__(self, other):
+        return self.area() == other.area()
+
+    def __ne__(self, other):
+        return self.area() != other.area()
+
+    def __lt__(self, other):
+        return self.area() < other.area()
+
+    def __le__(self, other):
+        return self.area() <= other.area()
+
+    def __gt__(self, other):
+        return self.area() > other.area()
+
+    def __ge__(self, other):
+        return self.area() >= other.area()
+
 
 if __name__ == "__main__":
-    my_square = Square(89)
-    print("Area: {} for size: {}".format(my_square.area(), my_square.size))
+    s_5 = Square(5)
+    s_6 = Square(6)
 
-    my_square.size = 3
-    print("Area: {} for size: {}".format(my_square.area(), my_square.size))
-
-    try:
-        my_square.size = "5 feet"
-        print("Area: {} for size: {}".format(my_square.area(), my_square.size))
-    except Exception as e:
-        print(e)
+    if s_5 < s_6:
+        print("Square 5 < Square 6")
+    if s_5 <= s_6:
+        print("Square 5 <= Square 6")
+    if s_5 == s_6:
+        print("Square 5 == Square 6")
+    if s_5 != s_6:
+        print("Square 5 != Square 6")
+    if s_5 > s_6:
+        print("Square 5 > Square 6")
+    if s_5 >= s_6:
+        print("Square 5 >= Square 6")
