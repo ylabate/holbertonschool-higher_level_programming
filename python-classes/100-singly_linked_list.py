@@ -75,7 +75,7 @@ class SinglyLinkedList:
         self.__head = None
 
     def sorted_insert(self, value):
-        """Inserts a new Node into the correct sorted position (increasing order).
+        """Inserts a new Node into the correct sorted position.
 
         Args:
             value (int): The value for the new Node.
