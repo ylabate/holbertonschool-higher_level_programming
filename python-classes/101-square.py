@@ -82,8 +82,8 @@ class Square:
     def my_print(self):
         """Prints the string representation of the square to stdout.
 
-        If the size is 0, prints an empty line. The position attribute is used to
-        offset the square with spaces (horizontal) and newlines (vertical).
+        If the size is 0, prints an empty line. The position attribute is used
+        to offset the square with spaces (horizontal) and newlines (vertical).
         """
         print(self.__str__(), end='')
 
