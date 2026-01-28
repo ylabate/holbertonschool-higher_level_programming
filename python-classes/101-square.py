@@ -85,7 +85,7 @@ class Square:
         If the size is 0, prints an empty line. The position attribute is used
         to offset the square with spaces (horizontal) and newlines (vertical).
         """
-        print(self.__str__(), end='')
+        print(self.__str__())
 
     def __str__(self):
         """Returns the printable string representation of the square.
