@@ -153,5 +153,6 @@ if __name__ == "__main__":
         print("my_rectangle_2 is bigger than my_rectangle_1")
 
     mysquare = Rectangle.square(5)
-    print("Area: {} - Perimeter: {}".format(mysquare.area(), mysquare.perimeter()))
+    print("Area: {} - Perimeter: {}".format(mysquare.area(),
+                                            mysquare.perimeter()))
     print(mysquare)
