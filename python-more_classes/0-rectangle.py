@@ -6,7 +6,8 @@ This module provides an empty class `Rectangle`.
 
 
 class Rectangle:
-    """Defines an empty rectangle."""
+    """Defines an empty rectangle.
+    """
     pass
 
 
