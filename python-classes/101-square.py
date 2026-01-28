@@ -102,8 +102,6 @@ class Square:
             res += "\n" * self.__position[1]
             line = " " * self.__position[0] + "#" * self.__size
             res += "\n".join(line for _ in range(self.__size))
-        else:
-            res += '\n'
         return res
 
 
