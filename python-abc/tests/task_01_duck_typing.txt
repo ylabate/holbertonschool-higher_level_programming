@@ -1,0 +1,86 @@
+import:
+	>>> Circle = __import__('task_01_duck_typing').Circle
+	>>> Rectangle = __import__('task_01_duck_typing').Rectangle
+	>>> shape_info = __import__('task_01_duck_typing').shape_info
+
+Instantiate Circle:
+	>>> circle = Circle(5)
+
+Instantiate Rectangle:
+	>>> rectangle = Rectangle(4, 7)
+
+test shape_info on rectangle:
+	>>> shape_info(rectangle)
+	Area: 28
+	Perimeter: 22
+
+test shape_info on circle:
+	>>> shape_info(circle)
+	Area: 78.53981633974483
+	Perimeter: 31.41592653589793
+
+Test Circle with radius 1:
+	>>> small_circle = Circle(1)
+	>>> shape_info(small_circle)
+	Area: 3.141592653589793
+	Perimeter: 6.283185307179586
+
+Test Circle with radius 10:
+	>>> large_circle = Circle(10)
+	>>> shape_info(large_circle)
+	Area: 314.1592653589793
+	Perimeter: 62.83185307179586
+
+Test Rectangle with square (equal sides):
+	>>> square = Rectangle(5, 5)
+	>>> shape_info(square)
+	Area: 25
+	Perimeter: 20
+
+Test Rectangle with small dimensions:
+	>>> tiny_rectangle = Rectangle(1, 2)
+	>>> shape_info(tiny_rectangle)
+	Area: 2
+	Perimeter: 6
+
+Test Rectangle with large dimensions:
+	>>> big_rectangle = Rectangle(20, 15)
+	>>> shape_info(big_rectangle)
+	Area: 300
+	Perimeter: 70
+
+Test multiple shape_info calls:
+	>>> circle_2 = Circle(3)
+	>>> shape_info(circle_2)
+	Area: 28.274333882308138
+	Perimeter: 18.84955592153876
+
+Test Rectangle with dimensions 1, 1:
+	>>> unit_rectangle = Rectangle(1, 1)
+	>>> shape_info(unit_rectangle)
+	Area: 1
+	Perimeter: 4
+
+Test Circle with float radius raises TypeError:
+	>>> float_circle = Circle(2.5)
+	Traceback (most recent call last):
+	...
+	TypeError: radius should be a integer
+
+Test Rectangle with float dimensions raises TypeError:
+	>>> float_rectangle = Rectangle(3.5, 4.5)
+	Traceback (most recent call last):
+	...
+	TypeError: width should be a integer
+
+Test Circle with radius 7:
+	>>> circle_7 = Circle(7)
+	>>> shape_info(circle_7)
+	Area: 153.93804002589985
+	Perimeter: 43.982297150257104
+
+Test Rectangle with dimensions 2, 8:
+	>>> rect_2_8 = Rectangle(2, 8)
+	>>> shape_info(rect_2_8)
+	Area: 16
+	Perimeter: 20
