@@ -12,3 +12,4 @@ def lookup(obj):
     :return: List of strings containing the names of all attributes and methods
     """
     return dir(obj)
+
