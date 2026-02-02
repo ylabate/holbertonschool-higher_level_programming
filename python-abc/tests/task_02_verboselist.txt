@@ -1,0 +1,104 @@
+import:
+	>>> VerboseList = __import__('task_02_verboselist').VerboseList
+
+Instantiate a VerboseList object:
+	>>> vl = VerboseList()
+
+Test append method with single item:
+	>>> vl.append(1)
+	Added [1] to the list.
+
+Test append method with another item:
+	>>> vl.append(2)
+	Added [2] to the list.
+
+Test append method with string:
+	>>> vl.append("hello")
+	Added [hello] to the list.
+
+Verify list contents after appends:
+	>>> print(vl)
+	[1, 2, 'hello']
+
+Test extend method with list:
+	>>> vl.extend([3, 4, 5])
+	Extended the list with [3] items.
+
+Test extend method with single item list:
+	>>> vl.extend([99])
+	Extended the list with [1] items.
+
+Verify list contents after extends:
+	>>> print(vl)
+	[1, 2, 'hello', 3, 4, 5, 99]
+
+Test remove method:
+	>>> vl.remove(2)
+	Removed [2] from the list.
+
+Test remove method with string:
+	>>> vl.remove("hello")
+	Removed [hello] from the list.
+
+Verify list contents after removes:
+	>>> print(vl)
+	[1, 3, 4, 5, 99]
+
+Test pop method with index 0:
+	>>> vl.pop(0)
+	Popped [1] from the list.
+	1
+
+Test pop method with index 1:
+	>>> vl.pop(1)
+	Popped [4] from the list.
+	4
+
+Verify list contents after pops:
+	>>> print(vl)
+	[3, 5, 99]
+
+Test append on fresh list:
+	>>> vl2 = VerboseList([10, 20])
+	>>> vl2.append(30)
+	Added [30] to the list.
+
+Test extend with multiple items:
+	>>> vl2.extend([40, 50, 60])
+	Extended the list with [3] items.
+
+Test remove on initialized list:
+	>>> vl2.remove(20)
+	Removed [20] from the list.
+
+Verify contents of vl2:
+	>>> print(vl2)
+	[10, 30, 40, 50, 60]
+
+Test pop with default index (last element):
+	>>> vl2.pop()
+	Popped [60] from the list.
+	60
+
+Verify final contents of vl2:
+	>>> print(vl2)
+	[10, 30, 40, 50]
+
+Test pop with index from main example:
+	>>> vl3 = VerboseList([1, 2, 3])
+	>>> vl3.append(4)
+	Added [4] to the list.
+	>>> vl3.extend([5, 6])
+	Extended the list with [2] items.
+	>>> vl3.remove(2)
+	Removed [2] from the list.
+	>>> vl3.pop()
+	Popped [6] from the list.
+	6
+	>>> vl3.pop(0)
+	Popped [1] from the list.
+	1
+
+Verify final contents of vl3:
+	>>> print(vl3)
+	[3, 4, 5]

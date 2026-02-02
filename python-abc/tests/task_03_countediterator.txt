@@ -1,0 +1,109 @@
+Test for task_03_countediterator module
+========================================
+
+>>> from task_03_countediterator import CountedIterator
+
+Basic iteration with a list
+============================
+
+>>> data = [1, 2, 3, 4]
+>>> counted_iter = CountedIterator(data)
+>>> next(counted_iter)
+1
+>>> counted_iter.get_count()
+1
+>>> next(counted_iter)
+2
+>>> counted_iter.get_count()
+2
+>>> next(counted_iter)
+3
+>>> counted_iter.get_count()
+3
+>>> next(counted_iter)
+4
+>>> counted_iter.get_count()
+4
+
+StopIteration exception when no more items
+===========================================
+
+>>> next(counted_iter)
+Traceback (most recent call last):
+    ...
+StopIteration
+
+Counter should remain at last value
+===================================
+
+>>> counted_iter.get_count()
+4
+
+Iteration with a string
+=======================
+
+>>> counted_iter = CountedIterator("ABC")
+>>> next(counted_iter)
+'A'
+>>> next(counted_iter)
+'B'
+>>> next(counted_iter)
+'C'
+>>> counted_iter.get_count()
+3
+
+Iteration with a range
+======================
+
+>>> counted_iter = CountedIterator(range(1, 4))
+>>> next(counted_iter)
+1
+>>> next(counted_iter)
+2
+>>> next(counted_iter)
+3
+>>> counted_iter.get_count()
+3
+>>> next(counted_iter)
+Traceback (most recent call last):
+    ...
+StopIteration
+
+Using in a while loop
+=====================
+
+>>> counted_iter = CountedIterator([10, 20, 30])
+>>> try:
+...     while True:
+...         item = next(counted_iter)
+...         print(f"Got {item}, total {counted_iter.get_count()} items iterated.")
+... except StopIteration:
+...     print("No more items.")
+Got 10, total 1 items iterated.
+Got 20, total 2 items iterated.
+Got 30, total 3 items iterated.
+No more items.
+
+Empty iterator
+==============
+
+>>> counted_iter = CountedIterator([])
+>>> next(counted_iter)
+Traceback (most recent call last):
+    ...
+StopIteration
+>>> counted_iter.get_count()
+0
+
+Using with tuple
+================
+
+>>> counted_iter = CountedIterator((100, 200, 300))
+>>> next(counted_iter)
+100
+>>> next(counted_iter)
+200
+>>> next(counted_iter)
+300
+>>> counted_iter.get_count()
+3
