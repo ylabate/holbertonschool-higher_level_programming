@@ -49,10 +49,9 @@ class Shape(ABC):
 
 
 class Circle(Shape):
-    """
-    A concrete implementation of Shape representing a circle.
+    """A concrete implementation of Shape representing a circle.
 
-    This class implements the abstract methods from Shape to calculate
+    This class provides the abstract methods of Shape to calculate
     the area and perimeter of a circle based on its radius.
     """
 
@@ -91,11 +90,10 @@ class Circle(Shape):
 
 
 class Rectangle(Shape):
-    """
-    A concrete implementation of Shape representing a rectangle.
+    """A concrete implementation of Shape representing a rectangle.
 
-    This class implements the abstract methods from Shape to calculate
-    the area and perimeter of a rectangle based on its width and height.
+    This class provides the abstract methods of Shape to calculate
+    the area and perimeter of a rectangle based on its dimensions.
     """
 
     def __init__(self, width, height):
@@ -138,15 +136,14 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
-    """
-    Print the area and perimeter information of a shape.
+    """Print the area and perimeter information of a shape.
 
     This function demonstrates duck typing by accepting any object
     that has area() and perimeter() methods, regardless of whether
-    it explicitly inherits from Shape.
+    it explicitly inherits the Shape class.
 
     Args:
-        shape: An object that implements area() and perimeter() methods.
+        shape: An object that provides area() and perimeter() methods.
 
     Raises:
         TypeError: If the shape object does not have the required methods.
