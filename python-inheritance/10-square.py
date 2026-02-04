@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Module that defines a Square class.
 
-This module provides a Square class that inherits from Rectangle
+This module provides a Square class that inherits of Rectangle
 and represents a square with equal sides.
 """
 
@@ -10,7 +10,7 @@ Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """A square class that inherits from Rectangle.
+    """A square class that inherits of Rectangle.
 
     This class represents a square with all sides of equal length.
     """
