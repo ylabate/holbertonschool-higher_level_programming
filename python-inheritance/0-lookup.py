@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
 Module for looking up attributes and methods of objects.
-Provides a function to return a list of all attributes and methods of any object.
+Provides a function to return a
+list of all attributes and methods of any object.
 """
 
 
