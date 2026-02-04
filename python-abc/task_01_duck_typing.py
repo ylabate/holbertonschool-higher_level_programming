@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Module that demonstrates duck typing with abstract base classes.
 
