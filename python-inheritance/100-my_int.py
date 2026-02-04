@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Module that defines a rebel integer class.
 
 This module provides MyInt, an integer class with inverted equality.

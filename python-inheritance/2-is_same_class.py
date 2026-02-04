@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Module that checks if an object is exactly an instance of a class."""
 
 

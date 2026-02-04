@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Module that defines a base geometry class for geometric shapes.
 
 Provides the foundation class for creating geometric objects with
