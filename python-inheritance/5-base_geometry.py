@@ -1,13 +1,10 @@
-"""
-Module that defines a base geometry class for geometric shapes.
-Provides the foundation class for creating geometric objects.
-"""
+#!/usr/bin/env python3
+"""Module that defines a base geometry class for geometric shapes."""
 
 
 class BaseGeometry:
-    """
-    A base class for geometry shapes that serves as the foundation for creating
-    geometric objects.
-    This class provides the basic structure.
+    """A base class for geometry shapes.
+
+    This class provides the basic structure for creating geometric objects.
     """
     pass

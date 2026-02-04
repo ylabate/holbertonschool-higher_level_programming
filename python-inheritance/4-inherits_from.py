@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Module that provides a function to check
 if an object is an instance of a subclass.

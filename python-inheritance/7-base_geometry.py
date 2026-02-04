@@ -1,5 +1,6 @@
-"""
-Module that defines a base geometry class for geometric shapes.
+#!/usr/bin/env python3
+"""Module that defines a base geometry class for geometric shapes.
+
 Provides the foundation class for creating geometric objects with
 area calculation and integer validation capabilities.
 """
