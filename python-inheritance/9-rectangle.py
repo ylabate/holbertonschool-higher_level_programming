@@ -4,40 +4,7 @@ Module that defines a Rectangle class that inherits from BaseGeometry.
 Provides a rectangle implementation with private width and height
 attributes that are validated as positive integers.
 """
-
-
-class BaseGeometry:
-    """
-    A base class for geometry shapes that serves as the foundation
-    for creating geometric objects.
-    This class provides the basic structure and defines methods that
-    subclasses must implement.
-    """
-
-    def area(self):
-        """
-        Calculate the area of the geometric shape.
-        This method must be implemented by subclasses as it raises
-        an exception in the base class.
-
-        :raise Exception: This method is not implemented in the base
-                         class and must be overridden
-        """
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """
-        Validate that a value is a positive integer.
-
-        :param name: The name of the parameter being validated
-        :param value: The value to validate
-        :raise TypeError: If value is not an integer
-        :raise ValueError: If value is not greater than 0
-        """
-        if not isinstance(value, int) or isinstance(value, bool):
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
+BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 
 class Rectangle(BaseGeometry):
