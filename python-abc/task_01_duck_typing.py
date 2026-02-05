@@ -8,7 +8,7 @@ It includes a shape_info function that demonstrates duck typing by
 accepting any object that implements the Shape interface.
 """
 from abc import ABC, abstractmethod
-from math import pi
+pi = 3.141592653589793
 
 
 class Shape(ABC):
@@ -31,7 +31,7 @@ class Shape(ABC):
             NotImplementedError: This method must be implemented by
                                  concrete subclasses.
         """
-        pass
+        ...
 
     @abstractmethod
     def perimeter(self) -> str:
@@ -45,7 +45,7 @@ class Shape(ABC):
             NotImplementedError: This method must be implemented by
                                  concrete subclasses.
         """
-        pass
+        ...
 
 
 class Circle(Shape):
