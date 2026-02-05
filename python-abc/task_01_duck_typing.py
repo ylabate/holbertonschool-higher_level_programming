@@ -22,10 +22,10 @@ class Shape(ABC):
     @abstractmethod
     def area(self) -> float:
         """
-        Calculate and return the area of the shape as a formatted string.
+        Calculate and return the area of the shape.
 
         Returns:
-            str: A string representation of the shape's area.
+            float: The area of the shape.
 
         Raises:
             NotImplementedError: This method must be implemented by
@@ -36,10 +36,10 @@ class Shape(ABC):
     @abstractmethod
     def perimeter(self) -> float:
         """
-        Calculate and return the perimeter of the shape as a formatted string.
+        Calculate and return the perimeter of the shape.
 
         Returns:
-            str: A string representation of the shape's perimeter.
+            float: The perimeter of the shape.
 
         Raises:
             NotImplementedError: This method must be implemented by
@@ -65,7 +65,7 @@ class Circle(Shape):
         Raises:
             TypeError: If radius is not an integer.
         """
-        if type(radius) is int:
+        if type(radius) is int or type(radius) is float:
             self.__radius = radius
         else:
             raise TypeError("radius should be a integer")
@@ -75,7 +75,7 @@ class Circle(Shape):
         Calculate the area of the circle.
 
         Returns:
-            str: A formatted string containing the area calculation.
+            float: The area of the circle.
         """
         return (self.__radius ** 2) * pi
 
@@ -84,7 +84,7 @@ class Circle(Shape):
         Calculate the perimeter (circumference) of the circle.
 
         Returns:
-            str: A formatted string containing the perimeter calculation.
+            float: The perimeter of the circle.
         """
         return 2 * pi * self.__radius
 
@@ -107,11 +107,11 @@ class Rectangle(Shape):
         Raises:
             TypeError: If width or height is not an integer.
         """
-        if type(width) is int:
+        if type(width) is int or type(width) is float:
             self.__width = width
         else:
             raise TypeError("width should be a integer")
-        if type(height) is int:
+        if type(height) is int or type(height) is float:
             self.__height = height
         else:
             raise TypeError("height should be a integer")
@@ -121,7 +121,7 @@ class Rectangle(Shape):
         Calculate the area of the rectangle.
 
         Returns:
-            str: A formatted string containing the area calculation.
+            int: The area of the rectangle.
         """
         return self.__width * self.__height
 
@@ -130,7 +130,7 @@ class Rectangle(Shape):
         Calculate the perimeter of the rectangle.
 
         Returns:
-            str: A formatted string containing the perimeter calculation.
+            int: The perimeter of the rectangle.
         """
         return self.__width * 2 + self.__height * 2
 
