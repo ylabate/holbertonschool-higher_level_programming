@@ -20,7 +20,7 @@ class Shape(ABC):
     """
 
     @abstractmethod
-    def area(self) -> str:
+    def area(self) -> float:
         """
         Calculate and return the area of the shape as a formatted string.
 
@@ -34,7 +34,7 @@ class Shape(ABC):
         ...
 
     @abstractmethod
-    def perimeter(self) -> str:
+    def perimeter(self) -> float:
         """
         Calculate and return the perimeter of the shape as a formatted string.
 
@@ -77,7 +77,7 @@ class Circle(Shape):
         Returns:
             str: A formatted string containing the area calculation.
         """
-        return "Area: " + str((self.__radius ** 2) * pi)
+        return (self.__radius ** 2) * pi
 
     def perimeter(self):
         """
@@ -86,7 +86,7 @@ class Circle(Shape):
         Returns:
             str: A formatted string containing the perimeter calculation.
         """
-        return "Perimeter: " + str(2 * pi * self.__radius)
+        return 2 * pi * self.__radius
 
 
 class Rectangle(Shape):
@@ -123,7 +123,7 @@ class Rectangle(Shape):
         Returns:
             str: A formatted string containing the area calculation.
         """
-        return "Area: " + str(self.__width * self.__height)
+        return self.__width * self.__height
 
     def perimeter(self):
         """
@@ -132,7 +132,7 @@ class Rectangle(Shape):
         Returns:
             str: A formatted string containing the perimeter calculation.
         """
-        return "Perimeter: " + str(self.__width * 2 + self.__height * 2)
+        return self.__width * 2 + self.__height * 2
 
 
 def shape_info(shape):
@@ -149,7 +149,7 @@ def shape_info(shape):
         TypeError: If the shape object does not have the required methods.
     """
     try:
-        print(shape.area())
-        print(shape.perimeter())
+        print(f"Area: {shape.area()}")
+        print(f"Perimeter: {shape.perimeter()}")
     except TypeError:
         raise TypeError("shape should be a child of Shape")
