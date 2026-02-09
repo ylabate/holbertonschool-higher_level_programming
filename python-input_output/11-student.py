@@ -13,3 +13,6 @@ class Student:
                     dict[key] = item
             return dict
         return self.__dict__
+
+    def reload_from_json(self, json):
+        self.__dict__ = json.copy()
