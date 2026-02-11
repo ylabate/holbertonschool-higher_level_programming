@@ -54,7 +54,8 @@ class CustomObject:
             filename (str): The filename to save the serialized object to.
 
         Returns:
-            None: Always returns None (implicitly on success, explicitly on error).
+            None: Always returns None
+            (implicitly on success, explicitly on error).
         """
         try:
             with open(filename, "wb") as file:
