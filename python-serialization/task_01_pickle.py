@@ -47,26 +47,38 @@ class CustomObject:
         """Serialize the current instance and save it to a file.
 
         Uses the pickle module to serialize the current instance and
-        save it to the specified file.
+        save it to the specified file. If an error occurs (such as
+        file permission issues), the method returns None silently.
 
         Args:
             filename (str): The filename to save the serialized object to.
+
+        Returns:
+            None: Always returns None (implicitly on success, explicitly on error).
         """
-        with open(filename, "wb") as file:
-            pickle.dump(self, file)
+        try:
+            with open(filename, "wb") as file:
+                pickle.dump(self, file)
+        except Exception:
+            return None
 
     @classmethod
     def deserialize(cls, filename):
         """Deserialize an object from a file.
 
         Uses the pickle module to load and deserialize an object from
-        the specified file.
+        the specified file. If the file does not exist or is malformed,
+        the method returns None instead of raising an exception.
 
         Args:
             filename (str): The filename to load the serialized object from.
 
         Returns:
-            CustomObject: The deserialized object instance.
+            CustomObject: The deserialized object instance, or None if
+                         the file could not be read or is malformed.
         """
-        with open(filename, "rb") as file:
-            return pickle.load(file)
+        try:
+            with open(filename, "rb") as file:
+                return pickle.load(file)
+        except Exception:
+            return None
