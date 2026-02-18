@@ -2,10 +2,12 @@
 import requests
 import csv
 
+
 def fetch_and_print_posts():
     page = requests.get("https://jsonplaceholder.typicode.com/posts/")
     print(f"Status Code: {page.status_code}")
     print('\n'.join(post['title'] for post in page.json()))
+
 
 def fetch_and_save_posts():
     res = requests.get("https://jsonplaceholder.typicode.com/posts/").json()
