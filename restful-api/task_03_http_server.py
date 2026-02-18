@@ -4,40 +4,59 @@ import json
 
 
 class SimpleAPIRequestHandler(http.server.BaseHTTPRequestHandler):
+    """HTTP request handler for a simple API server."""
+
     def do_GET(self):
-        if self.path == '/':
+        """Handle GET requests to various endpoints."""
+        if self.path == "/":
             self.send_response(200)
-            self.send_header('Content-Type', 'text/plain')
+            self.send_header("Content-Type", "text/plain")
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")
-        elif self.path == '/data':
+
+        elif self.path == "/data":
             self.send_response(200)
-            self.send_header('Content-Type', 'application/json')
+            self.send_header("Content-Type", "application/json")
             self.end_headers()
             data = {"name": "John", "age": 30, "city": "New York"}
-            self.wfile.write(json.dumps(data).encode('utf-8'))
-        elif self.path == '/status':
+            self.wfile.write(json.dumps(data).encode("utf-8"))
+        elif self.path == "/status":
             self.send_response(200)
-            self.send_header('Content-Type', 'text/plain')
+            self.send_header("Content-Type", "text/plain")
             self.end_headers()
             self.wfile.write(b"OK")
-        elif self.path == '/info':
+        elif self.path == "/info":
             self.send_response(200)
-            self.send_header('Content-Type', 'application/json')
+            self.send_header("Content-Type", "application/json")
             self.end_headers()
             data = {
                 "version": "1.0",
-                "description": "A simple API built with http.server"
+                "description": "A simple API built with http.server",
             }
-            self.wfile.write(json.dumps(data).encode('utf-8'))
+            self.wfile.write(json.dumps(data).encode("utf-8"))
         else:
             self.send_response(404)
-            self.send_header('Content-Type', 'application/json')
+            self.send_header("Content-Type", "application/json")
             self.end_headers()
             error = {"error": "Endpoint not found"}
-            self.wfile.write(json.dumps(error).encode('utf-8'))
+            self.wfile.write(json.dumps(error).encode("utf-8"))
+
+    def do_POST(self):
+        """Handle POST requests to various endpoints."""
+        if self.path == "/data":
+            self.send_response(201)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            response = {"message": "Data received", "status": "success"}
+            self.wfile.write(json.dumps(response).encode("utf-8"))
+        else:
+            self.send_response(404)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            error = {"error": "Endpoint not found"}
+            self.wfile.write(json.dumps(error).encode("utf-8"))
 
 
 if __name__ == "__main__":
-    server = http.server.HTTPServer(('0.0.0.0', 8000), SimpleAPIRequestHandler)
+    server = http.server.HTTPServer(("0.0.0.0", 8000), SimpleAPIRequestHandler)
     server.serve_forever()
