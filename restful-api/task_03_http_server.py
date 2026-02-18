@@ -20,11 +20,13 @@ class SimpleAPIRequestHandler(http.server.BaseHTTPRequestHandler):
             self.end_headers()
             data = {"name": "John", "age": 30, "city": "New York"}
             self.wfile.write(json.dumps(data).encode("utf-8"))
+
         elif self.path == "/status":
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
             self.wfile.write(b"OK")
+
         elif self.path == "/info":
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
@@ -38,23 +40,7 @@ class SimpleAPIRequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
-            error = {"error": "Endpoint not found"}
-            self.wfile.write(json.dumps(error).encode("utf-8"))
-
-    def do_POST(self):
-        """Handle POST requests to various endpoints."""
-        if self.path == "/data":
-            self.send_response(201)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            response = {"message": "Data received", "status": "success"}
-            self.wfile.write(json.dumps(response).encode("utf-8"))
-        else:
-            self.send_response(404)
-            self.send_header("Content-Type", "application/json")
-            self.end_headers()
-            error = {"error": "Endpoint not found"}
-            self.wfile.write(json.dumps(error).encode("utf-8"))
+            self.wfile.write(b"Endpoint not found")
 
 
 if __name__ == "__main__":
