@@ -2,6 +2,7 @@
 """Flask API with JWT Authentication and Basic Security."""
 
 from flask import Flask, jsonify, request
+from flask_httpauth import HTTPBasicAuth
 from flask_jwt_extended import (
     JWTManager,
     create_access_token,
@@ -9,7 +10,6 @@ from flask_jwt_extended import (
     jwt_required,
 )
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_httpauth import HTTPBasicAuth
 
 app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = "super-super-secret"
@@ -51,9 +51,7 @@ def handle_needs_fresh_token_error(err):
 
 @auth.verify_password
 def verify_password(username, password):
-    if username in users and check_password_hash(
-        users[username]["password"], password
-    ):
+    if username in users and check_password_hash(users[username]["password"], password):
         return username
 
 
@@ -75,14 +73,14 @@ def login():
 @app.route("/basic-protected", methods=["GET"])
 @auth.login_required
 def basic_protected():
-    return {"Basic Auth": "Access Granted"}, 200
+    return "Basic Auth: Access Granted", 200
 
 
 @app.route("/jwt-protected", methods=["GET"])
 @jwt_required()
 def jwt_protected():
     """Protected endpoint requiring valid JWT."""
-    return jsonify({"JWT Auth": "Access Granted"}), 200
+    return "JWT Auth: Access Granted", 200
 
 
 @app.route("/admin-only", methods=["GET"])
@@ -92,22 +90,20 @@ def admin_only():
     current_user = get_jwt_identity()
 
     if users[current_user]["role"] == "admin":
-        return jsonify({"Admin Access": "Granted"}), 200
+        return "Admin Access: Granted", 200
 
     return jsonify({"error": "Admin access required"}), 403
 
 
 if __name__ == "__main__":
-    users["user"] = {
-        "username": "user",
-        "password": generate_password_hash("test"),
+    users["user1"] = {
+        "username": "user1",
+        "password": generate_password_hash("password"),
         "role": "user",
     }
-    users["admin"] = {
-        "username": "admin",
-        "password": generate_password_hash("admin"),
+    users["admin1"] = {
+        "username": "admin1",
+        "password": generate_password_hash("password"),
         "role": "admin",
     }
     app.run(host="0.0.0.0")
-
-
