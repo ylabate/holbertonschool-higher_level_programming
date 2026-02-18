@@ -3,7 +3,7 @@ import http.server
 import json
 
 
-class Server(http.server.BaseHTTPRequestHandler):
+class SimpleAPIRequestHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
             self.send_response(200)
@@ -25,7 +25,10 @@ class Server(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
-            data = {"version": "1.0", "description": "A simple API built with http.server"}
+            data = {
+                "version": "1.0",
+                "description": "A simple API built with http.server"
+            }
             self.wfile.write(json.dumps(data).encode('utf-8'))
         else:
             self.send_response(404)
@@ -34,21 +37,7 @@ class Server(http.server.BaseHTTPRequestHandler):
             error = {"error": "Endpoint not found"}
             self.wfile.write(json.dumps(error).encode('utf-8'))
 
-    def do_POST(self):
 
-        if self.path == '/data':
-            self.send_response(201)
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
-            response = {"message": "Data received", "status": "success"}
-            self.wfile.write(json.dumps(response).encode('utf-8'))
-        else:
-            self.send_response(404)
-            self.send_header('Content-Type', 'application/json')
-            self.end_headers()
-            error = {"error": "Endpoint not found"}
-            self.wfile.write(json.dumps(error).encode('utf-8'))
-
-
-server = http.server.HTTPServer(('localhost', 8000), Server)
-server.serve_forever()
+if __name__ == "__main__":
+    server = http.server.HTTPServer(('0.0.0.0', 8000), SimpleAPIRequestHandler)
+    server.serve_forever()
