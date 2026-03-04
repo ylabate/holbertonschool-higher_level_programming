@@ -1,4 +1,4 @@
-select cities.id, cities.name, states.name
-from cities
-inner join states on cities.state_id = states.id
-order by state_id;
+SELECT cities.id, cities.name, states.name
+FROM cities
+INNER JOIN states ON cities.state_id = states.id
+ORDER BY state_id;

@@ -1,1 +1,1 @@
-create table if not exists unique_id (id int default 1 unique, name varchar(256) not null);
+CREATE TABLE IF NOT EXISTS unique_id (id INT DEFAULT 1 UNIQUE, name VARCHAR(256) NOT NULL);
