@@ -2,5 +2,9 @@
 -- Display: cities.id, state_id, cities.name ordered by cities.id
 SELECT cities.id, state_id, cities.name
 FROM cities
-INNER JOIN states ON cities.state_id = states.id
-WHERE states.name = 'California'
+WHERE cities.state_id = (
+	SELECT states.id
+	FROM states
+	WHERE states.name = 'California'
+	)
+ORDER BY cities.id ASC
