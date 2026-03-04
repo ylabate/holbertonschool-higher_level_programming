@@ -1,0 +1,1 @@
+SELECT count(id) as records FROM first_table group by id;

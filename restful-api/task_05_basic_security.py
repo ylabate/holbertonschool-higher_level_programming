@@ -51,7 +51,9 @@ def handle_needs_fresh_token_error(err):
 
 @auth.verify_password
 def verify_password(username, password):
-    if username in users and check_password_hash(users[username]["password"], password):
+    if username in users and check_password_hash(
+        users[username]["password"], password
+    ):
         return username
 
 
