@@ -1,6 +1,6 @@
 -- Lists all cities of California in the database hbtn_0d_usa
 -- Display: cities.id, state_id, cities.name ordered by cities.id
-SELECT cities.id, state_id, cities.name
+SELECT cities.id, cities.name
 FROM cities
 WHERE cities.state_id = (
 	SELECT states.id
