@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Script that lists all states matching a given name
-    from the database hbtn_0e_0_usa."""
+"""Script that lists states matching a given name from hbtn_0e_0_usa."""
 
 from sys import argv
 
@@ -8,8 +7,7 @@ import MySQLdb
 
 
 def main():
-    """Connect to MySQL and list all states whose name matches the user input,
-        sorted by id ascending."""
+    """Connect to MySQL and list states matching user input by id."""
     with MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -19,8 +17,9 @@ def main():
     ) as connexion:
         with connexion.cursor() as cur:
             cur.execute(
-                "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC"
-                .format(argv[4]))
+                "SELECT * FROM states WHERE name = '{}'ORDER BY id ASC"
+                .format(argv[4])
+            )
             for row in cur.fetchall():
                 print(row)
 
