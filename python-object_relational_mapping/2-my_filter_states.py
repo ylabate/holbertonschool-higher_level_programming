@@ -16,10 +16,8 @@ def main():
         db=argv[3],
     ) as connexion:
         with connexion.cursor() as cur:
-            cur.execute(
-                "SELECT * FROM states WHERE name = '{}'ORDER BY id ASC"
-                .format(argv[4])
-            )
+            request = "SELECT * FROM states WHERE name = '{}'ORDER BY id ASC"
+            cur.execute(request.format(argv[4]))
             for row in cur.fetchall():
                 print(row)
 
