@@ -1,10 +1,13 @@
 #!/usr/bin/python3
+"""Script that lists all states from the database hbtn_0e_0_usa."""
+
 from sys import argv
 
 import MySQLdb
 
 
 def main():
+    """Connect to MySQL and list all states sorted by id ascending."""
     with MySQLdb.connect(
         host="localhost",
         port=3306,
