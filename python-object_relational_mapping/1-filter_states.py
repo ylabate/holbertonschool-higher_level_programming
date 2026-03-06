@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Script that lists all states starting with 'N' from the database hbtn_0e_0_usa."""
+"""Script that lists all states starting with 'N'
+    from the database hbtn_0e_0_usa."""
 
 from sys import argv
 
@@ -7,7 +8,8 @@ import MySQLdb
 
 
 def main():
-    """Connect to MySQL and list all states whose name starts with 'N', sorted by id ascending."""
+    """Connect to MySQL and list all states whose name starts with 'N',
+        sorted by id ascending."""
     with MySQLdb.connect(
         host="localhost",
         port=3306,
