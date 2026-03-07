@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script that prints the first State object from the database hbtn_0e_6_usa."""
+"""Script that prints the first State object."""
 
 import sys
 
