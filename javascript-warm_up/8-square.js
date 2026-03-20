@@ -6,7 +6,7 @@ if (isNaN(x)) {
 
 let row = ''
 for (let j = 0; j < x; j++) {
-  row += '#'
+  row += 'X'
 }
 
 for (let i = 0; i < x; i++) {
