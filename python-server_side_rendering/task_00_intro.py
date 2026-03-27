@@ -3,16 +3,20 @@ import os
 
 
 def generate_invitations(template, attendees):
+    errTxt = f", no output files generated."
     if not template:
-        print("Template is empty, ", file=sys.stderr, end='')
+        print(f"Template is empty{errTxt}", file=sys.stderr, end='')
     elif not attendees:
-        print("No data provided, ", file=sys.stderr, end='')
+        print(f"No data provided{errTxt}", file=sys.stderr, end='')
     elif not isinstance(template, str):
-        print(f"template is {type(template)}, string expected, ", file=sys.stderr, end='')
+        print(f"template is {type(template)}, string expected{errTxt}", file=sys.stderr, end='')
     elif not isinstance(attendees, list):
-        print(f"template is {type(attendees)}, a list of dictionnary expected, ", file=sys.stderr, end='')
+        print(f"template is {type(attendees)}, a list of dictionnary expected{errTxt}", file=sys.stderr, end='')
     else:
         for i, attendee in enumerate(attendees, 1):
+            if not isinstance(attendee, dict):
+                print(f"template is {type(attendee)}, a list of dictionnary expected{errTxt}", file=sys.stderr, end='')
+                return
             buffer = template
             for key, value in attendee.items():
                 try:
@@ -23,4 +27,3 @@ def generate_invitations(template, attendees):
                 with open(f"output_{i}.txt", mode="w") as file:
                     file.write(buffer)
         return
-    print("no output files generated.", file=sys.stderr)
