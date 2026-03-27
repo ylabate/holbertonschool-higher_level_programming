@@ -66,7 +66,11 @@ def products():
                 entries = [dict for dict in csv.DictReader(file)]
     else:
         error = "Wrong source"
-    return render_template('product_display.html', entries=entries, error=error)
+    return render_template(
+        'product_display.html',
+        entries=entries,
+        error=error
+    )
 
 
 if __name__ == '__main__':
