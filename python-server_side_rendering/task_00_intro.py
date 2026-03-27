@@ -23,7 +23,6 @@ def generate_invitations(template, attendees):
                     buffer = buffer.replace('{' + key + '}', value)
                 except Exception:
                     buffer = buffer.replace('{' + key + '}', f"{key}:N/A")
-            if not os.path.exists(f"output_{i}.txt"):
-                with open(f"output_{i}.txt", mode="w") as file:
-                    file.write(buffer)
+            with open(f"output_{i}.txt", mode="w") as file:
+                file.write(buffer)
         return
