@@ -22,7 +22,7 @@ def generate_invitations(template, attendees):
                 try:
                     buffer = buffer.replace('{' + key + '}', value)
                 except Exception:
-                    buffer = buffer.replace('{' + key + '}', f"{key}:N/A")
+                    buffer = buffer.replace('{' + key + '}', f"N/A")
             with open(f"output_{i}.txt", mode="w") as file:
                 file.write(buffer)
         return
