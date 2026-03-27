@@ -10,7 +10,7 @@ def generate_invitations(template, attendees):
     elif not isinstance(template, str):
         print(f"template is the wrong type{errTxt}", file=sys.stderr)
     elif not isinstance(attendees, list):
-        print(f"template is the wrong type{errTxt}", file=sys.stderr)
+        print(f"attendees is the wrong type{errTxt}", file=sys.stderr)
     else:
         for i, attendee in enumerate(attendees, 1):
             if not isinstance(attendee, dict):
