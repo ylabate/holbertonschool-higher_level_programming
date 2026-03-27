@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import json
 
 app = Flask(__name__)
 
@@ -16,6 +17,16 @@ def about():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+
+@app.route('/items')
+def items():
+    try:
+        with open('items.json', mode='r') as file:
+            items = json.load(file)
+    except Exception:
+        items = []
+    return render_template('items.html', items=items['items'])
 
 
 if __name__ == '__main__':
