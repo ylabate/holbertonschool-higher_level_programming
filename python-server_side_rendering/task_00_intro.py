@@ -1,5 +1,4 @@
 import sys
-import os
 
 
 def generate_invitations(template, attendees):
@@ -9,20 +8,20 @@ def generate_invitations(template, attendees):
     elif not attendees or attendees == []:
         print(f"No data provided{errTxt}", file=sys.stderr)
     elif not isinstance(template, str):
-        print(f"template is {type(template)}, string expected{errTxt}", file=sys.stderr)
+        print(f"template is the wrong type{errTxt}", file=sys.stderr)
     elif not isinstance(attendees, list):
-        print(f"template is {type(attendees)}, a list of dictionnary expected{errTxt}", file=sys.stderr)
+        print(f"template is the wrong type{errTxt}", file=sys.stderr)
     else:
         for i, attendee in enumerate(attendees, 1):
             if not isinstance(attendee, dict):
-                print(f"template is {type(attendee)}, a list of dictionnary expected{errTxt}", file=sys.stderr)
+                print(f"template is the wrong type{errTxt}", file=sys.stderr)
                 return
             buffer = template
             for key, value in attendee.items():
                 try:
                     buffer = buffer.replace(key, value)
                 except Exception:
-                    buffer = buffer.replace(key, "N/A")
+                    buffer = buffer.replace(key, key + ":N/A")
             with open(f"output_{i}.txt", mode="w") as file:
                 file.write(buffer)
         return
